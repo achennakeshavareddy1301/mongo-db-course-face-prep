@@ -1,0 +1,47 @@
+-- Show existing databases
+SHOW DATABASES;
+
+-- Create a new database for VIT Chennai
+CREATE DATABASE vit_chennai;
+
+-- Use the new database
+USE vit_chennai;
+
+-- Create a table for VIT Chennai students
+CREATE TABLE vit_chennai (
+    full_name VARCHAR(100),
+    reg_no VARCHAR(20) PRIMARY KEY,
+    school VARCHAR(100),
+    graduation_year INT
+);
+
+-- Insert student records (updated names and reg_no for Chennai campus)
+INSERT INTO vit_chennai (full_name, reg_no, school, graduation_year) VALUES
+('Ishita Sen', '21BCE3001', 'School of Computer Science', 2025),
+('Rahul Krishnan', '21EEE3002', 'School of Electrical Engineering', 2025),
+('Divya Nair', '21MEC3003', 'School of Mechanical Engineering', 2025),
+('Aravind Raj', '20BCE3004', 'School of Computer Science', 2024),
+('Sneha Iyer', '21CSE3005', 'School of Computer Science', 2025),
+('Nikhil Ramesh', '21ECE3006', 'School of Electronics Engineering', 2025),
+('Nikita Anandmani', '20BBA3007', 'School of Business', 2024),
+('Manoj Kumar', '22CIV3008', 'School of Civil Engineering', 2026),
+('Ritika Sharma', '21BIO3009', 'School of Bio Sciences', 2025);
+
+-- View all records
+SELECT * FROM vit_chennai;
+
+-- Add a new column for phone number
+ALTER TABLE vit_chennai ADD(phone VARCHAR(10));
+
+-- Describe the table structure
+DESC vit_chennai;
+
+-- Remove the phone column
+ALTER TABLE vit_chennai DROP COLUMN phone;
+
+-- Add a column for country with default value
+ALTER TABLE vit_chennai ADD(s_country VARCHAR(10) DEFAULT 'India');
+
+-- Optional: if you want to update any name
+-- This is already reflected in the insert above, but shown for clarity
+UPDATE vit_chennai SET full_name='Nikita Anandmani' WHERE full_name='Some Old Name';
